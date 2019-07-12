@@ -22,9 +22,9 @@ class PopularMoviesBuidler {
         let viewController = PopularMoviesViewController()
         viewController.title = "Popular Movies"
         
-        let router = PopularMovieRouter()
-        let interactor = PopularMovieInteractor()
-        let presenter = PopularMoviePresenter()
+        let router = PopularMoviesRouter()
+        let interactor = PopularMoviesInteractor()
+        let presenter = PopularMoviesPresenter()
         
         return factory(viewController)
     }
