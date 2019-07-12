@@ -12,6 +12,8 @@ import Foundation
 struct NetworkPath {
     
     static let base_url = "https://api.themoviedb.org/3"
+    static let base_url_scheme = "https"
+    static let base_url_host = "api.themoviedb.org/3"
     private static let api_key = "0654b0b2075531e4ae5885f658b9f981"
     
     /// Base url movie, requiere "id_movie" and "api_key"
