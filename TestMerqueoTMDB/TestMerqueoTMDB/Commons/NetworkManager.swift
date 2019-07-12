@@ -32,12 +32,11 @@ class NetworkManager: NSObject {
                          header:[String:String]?,
                          completion: @escaping (T?, GeneralBasicResponse?) -> ()){
         
-        var urlComponents = URLComponents()
-        urlComponents.scheme = NetworkPath.base_url_scheme
-        urlComponents.host = NetworkPath.base_url_host
-        urlComponents.path = uriApi
+        let _uri = String(format: "%@%@", NetworkPath.base_url, uriApi)
+        let urlComponents = URLComponents.init(url: URL.init(string: _uri)!, resolvingAgainstBaseURL: true)
         
-        guard let url = urlComponents.url else {
+        
+        guard let url = urlComponents?.url else {
             fatalError("Could not create URL from components")
         }
         
@@ -64,6 +63,9 @@ class NetworkManager: NSObject {
             //--------------------------------------------------------------------
             (responseData, response, responseError) in
             //self.loadingIndicator.hide()
+            
+            print("URI: \(request.mainDocumentURL)")
+            print("URI2: \(request.url)")
             //--------------------------------------------------------------------
             //--------------------------------------------------------------------
             guard responseError == nil else {
@@ -184,12 +186,10 @@ class NetworkManager: NSObject {
                           header:[String:String]?,
                           completion: @escaping (T?,GeneralBasicResponse?) -> ()){
         
-        var urlComponents = URLComponents()
-        urlComponents.scheme = NetworkPath.base_url_scheme
-        urlComponents.host = NetworkPath.base_url_host
-        urlComponents.path = uriApi
+        let _uri = String(format: "%@%@", NetworkPath.base_url, uriApi)
+        let urlComponents = URLComponents.init(url: URL.init(string: _uri)!, resolvingAgainstBaseURL: true)
         
-        guard let url = urlComponents.url else {
+        guard let url = urlComponents?.url else {
             fatalError("Could not create URL from components")
         }
         
