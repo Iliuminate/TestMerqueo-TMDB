@@ -105,7 +105,8 @@ class NetworkManager: NSObject {
                 
                 
                 if normaliceUTF8_Dict.count > 0,
-                    (normaliceUTF8_Dict.first?["MessageCode"] as? String ?? "") == "bad" {
+                    (normaliceUTF8_Dict.first?["status_code"] as? String ?? "") == "7",
+                    (normaliceUTF8_Dict.first?["status_code"] as? String ?? "") == "34" {
                     
                     //- BAD
                     do {

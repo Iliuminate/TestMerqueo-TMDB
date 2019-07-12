@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         let uri = String(format: NetworkPath.api_movies_popular, "1")
         
         network.GET(uriApi: uri, header: nil) {
-            (response:GeneralBasicResponse?, error:GeneralBasicResponse?) in
+            (response:ResponseAPIMoviesPopular?, error:GeneralBasicResponse?) in
             
             DispatchQueue.main.async {
                 print("Call netkwork")

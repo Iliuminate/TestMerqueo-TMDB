@@ -28,7 +28,7 @@ struct Result: Codable {
     let genreIDS: [Int]
     let id: Int
     let originalTitle: String
-    let originalLanguage: OriginalLanguage
+    let originalLanguage: String
     let title, backdropPath: String
     let popularity: Double
     let voteCount: Int
@@ -52,9 +52,9 @@ struct Result: Codable {
     }
 }
 
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-}
+//enum OriginalLanguage: String, Codable {
+//    case en = "en"
+//}
 
 // MARK: Convenience initializers
 
