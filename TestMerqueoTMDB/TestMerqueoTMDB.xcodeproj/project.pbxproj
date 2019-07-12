@@ -15,6 +15,21 @@
 		84B9FD5E22D8C8FC009E1B88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B9FD5C22D8C8FC009E1B88 /* LaunchScreen.storyboard */; };
 		84B9FD6922D8C8FC009E1B88 /* TestMerqueoTMDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD6822D8C8FC009E1B88 /* TestMerqueoTMDBTests.swift */; };
 		84B9FD7422D8C8FC009E1B88 /* TestMerqueoTMDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD7322D8C8FC009E1B88 /* TestMerqueoTMDBUITests.swift */; };
+		84B9FD8322D8CCE3009E1B88 /* ResponseAPI_Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8222D8CCE3009E1B88 /* ResponseAPI_Movie.swift */; };
+		84B9FD8422D8CCE3009E1B88 /* ResponseAPI_Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8222D8CCE3009E1B88 /* ResponseAPI_Movie.swift */; };
+		84B9FD8522D8CCE3009E1B88 /* ResponseAPI_Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8222D8CCE3009E1B88 /* ResponseAPI_Movie.swift */; };
+		84B9FD8722D8CE0A009E1B88 /* ResponseAPI_Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8622D8CE0A009E1B88 /* ResponseAPI_Image.swift */; };
+		84B9FD8822D8CE0A009E1B88 /* ResponseAPI_Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8622D8CE0A009E1B88 /* ResponseAPI_Image.swift */; };
+		84B9FD8922D8CE0A009E1B88 /* ResponseAPI_Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8622D8CE0A009E1B88 /* ResponseAPI_Image.swift */; };
+		84B9FD8B22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8A22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift */; };
+		84B9FD8C22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8A22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift */; };
+		84B9FD8D22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8A22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift */; };
+		84B9FD9022D8D297009E1B88 /* NetworkPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8F22D8D297009E1B88 /* NetworkPath.swift */; };
+		84B9FD9122D8D297009E1B88 /* NetworkPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8F22D8D297009E1B88 /* NetworkPath.swift */; };
+		84B9FD9222D8D297009E1B88 /* NetworkPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD8F22D8D297009E1B88 /* NetworkPath.swift */; };
+		84B9FD9422D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD9322D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift */; };
+		84B9FD9522D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD9322D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift */; };
+		84B9FD9622D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD9322D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +64,11 @@
 		84B9FD6F22D8C8FC009E1B88 /* TestMerqueoTMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestMerqueoTMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B9FD7322D8C8FC009E1B88 /* TestMerqueoTMDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMerqueoTMDBUITests.swift; sourceTree = "<group>"; };
 		84B9FD7522D8C8FC009E1B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B9FD8222D8CCE3009E1B88 /* ResponseAPI_Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseAPI_Movie.swift; sourceTree = "<group>"; };
+		84B9FD8622D8CE0A009E1B88 /* ResponseAPI_Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseAPI_Image.swift; sourceTree = "<group>"; };
+		84B9FD8A22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseAPI_GetConfiguration.swift; sourceTree = "<group>"; };
+		84B9FD8F22D8D297009E1B88 /* NetworkPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPath.swift; sourceTree = "<group>"; };
+		84B9FD9322D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseAPI_MoviesPopular.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +119,8 @@
 		84B9FD4F22D8C8FB009E1B88 /* TestMerqueoTMDB */ = {
 			isa = PBXGroup;
 			children = (
+				84B9FD8E22D8D233009E1B88 /* Commons */,
+				84B9FD8122D8CC79009E1B88 /* Entities */,
 				84B9FD5022D8C8FB009E1B88 /* AppDelegate.swift */,
 				84B9FD5222D8C8FB009E1B88 /* ViewController.swift */,
 				84B9FD5422D8C8FB009E1B88 /* Main.storyboard */,
@@ -126,6 +148,25 @@
 				84B9FD7522D8C8FC009E1B88 /* Info.plist */,
 			);
 			path = TestMerqueoTMDBUITests;
+			sourceTree = "<group>";
+		};
+		84B9FD8122D8CC79009E1B88 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				84B9FD8222D8CCE3009E1B88 /* ResponseAPI_Movie.swift */,
+				84B9FD8622D8CE0A009E1B88 /* ResponseAPI_Image.swift */,
+				84B9FD8A22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift */,
+				84B9FD9322D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		84B9FD8E22D8D233009E1B88 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				84B9FD8F22D8D297009E1B88 /* NetworkPath.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +300,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B9FD9422D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift in Sources */,
 				84B9FD5322D8C8FB009E1B88 /* ViewController.swift in Sources */,
 				84B9FD5122D8C8FB009E1B88 /* AppDelegate.swift in Sources */,
+				84B9FD8322D8CCE3009E1B88 /* ResponseAPI_Movie.swift in Sources */,
 				84B9FD5922D8C8FB009E1B88 /* TestMerqueoTMDB.xcdatamodeld in Sources */,
+				84B9FD8722D8CE0A009E1B88 /* ResponseAPI_Image.swift in Sources */,
+				84B9FD8B22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift in Sources */,
+				84B9FD9022D8D297009E1B88 /* NetworkPath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +315,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B9FD9522D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift in Sources */,
+				84B9FD8422D8CCE3009E1B88 /* ResponseAPI_Movie.swift in Sources */,
+				84B9FD9122D8D297009E1B88 /* NetworkPath.swift in Sources */,
+				84B9FD8C22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift in Sources */,
 				84B9FD6922D8C8FC009E1B88 /* TestMerqueoTMDBTests.swift in Sources */,
+				84B9FD8822D8CE0A009E1B88 /* ResponseAPI_Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +328,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B9FD9622D8DEDD009E1B88 /* ResponseAPI_MoviesPopular.swift in Sources */,
+				84B9FD8522D8CCE3009E1B88 /* ResponseAPI_Movie.swift in Sources */,
+				84B9FD9222D8D297009E1B88 /* NetworkPath.swift in Sources */,
+				84B9FD8D22D8D213009E1B88 /* ResponseAPI_GetConfiguration.swift in Sources */,
 				84B9FD7422D8C8FC009E1B88 /* TestMerqueoTMDBUITests.swift in Sources */,
+				84B9FD8922D8CE0A009E1B88 /* ResponseAPI_Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
