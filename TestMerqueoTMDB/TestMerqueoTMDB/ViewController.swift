@@ -10,11 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var imageTest: UIImageView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         testGETMovies()
+        testGetImage(imgName: "A32wmjrs9Psf4zw0uaixF0GXfxq.png")
     }
 
     
@@ -32,5 +38,12 @@ class ViewController: UIViewController {
         }
     }
 
+    
+    func testGetImage(imgName:String){
+        
+        let imageUri = String(format:NetworkPath.base_url_images, "original", imgName)
+        imageTest.downloadFrom(link: imageUri, contentMode: .scaleAspectFit)
+    }
+    
 }
 
