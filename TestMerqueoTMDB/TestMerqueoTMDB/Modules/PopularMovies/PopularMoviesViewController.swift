@@ -62,12 +62,14 @@ class PopularMoviesViewController: UIViewController {
     @objc func handleTapCollection(_ sender: CollectionTapGesture) {
         
         print("HandleTapCollection touch")
-        if let _cell = sender.cell as? MovieCollectionCell, let _data = _cell.dataSource {
-            onMovieSelection(dataDetail: _data)
+        if let _cell = sender.cell as? MovieCollectionCell,
+            let _data = _cell.dataSource,
+            let data = _data as? PopularMovieEntity {
+            
+            onMovieSelection(dataDetail: data)
         }else {
             print("Is not a cell")
         }
-        
     }
 
 }
@@ -83,6 +85,7 @@ extension PopularMoviesViewController : UICollectionViewDataSource, UICollection
         
         let viewItem = datasource[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMoviesViewController.popularMoviewIDCell, for: indexPath) as! MovieCollectionCell
+        //cell.setup(item: viewItem, classType: PopularMovieEntity.self)
         cell.setup(item: viewItem)
         addTouchItemGesture(cell)
         
