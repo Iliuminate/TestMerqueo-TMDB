@@ -14,6 +14,12 @@ protocol PopularMoviesRouting {
 
 class PopularMoviesRouter {
     
+    var viewController: UIViewController
+    
+    init(viewController: UIViewController) {
+        self.viewController = viewController
+    }
+    
 }
 
 extension PopularMoviesRouter : PopularMoviesRouting {

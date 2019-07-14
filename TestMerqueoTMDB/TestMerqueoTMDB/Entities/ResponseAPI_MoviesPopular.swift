@@ -58,7 +58,7 @@ struct Result: Codable {
 
 // MARK: Convenience initializers
 
-extension ResponseAPIMoviesPopular {
+extension ResponseAPIMoviesPopular: ResponseDelegate {
     init?(data: Data) {
         guard let me = try? JSONDecoder().decode(ResponseAPIMoviesPopular.self, from: data) else { return nil }
         self = me

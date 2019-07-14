@@ -9,11 +9,6 @@
 import UIKit
 
 
-protocol PopularMoviesView {
-    
-}
-
-
 class PopularMoviesBuidler {
     
     static func build(usingNavigationFactory factory:NavigationFactory) -> UINavigationController {
@@ -22,9 +17,10 @@ class PopularMoviesBuidler {
         let viewController = PopularMoviesViewController()
         viewController.title = "Popular Movies"
         
-        let router = PopularMoviesRouter()
+        let router = PopularMoviesRouter(viewController: viewController)
         let interactor = PopularMoviesInteractor()
-        let presenter = PopularMoviesPresenter()
+        let presenter = PopularMoviesPresenter(view: viewController, interactor: interactor, router: router)
+        viewController.presesenter = presenter
         
         return factory(viewController)
     }
@@ -46,9 +42,4 @@ class PopularMoviesBuidler {
 //            }
 //        }
 //    }
-}
-
-
-extension PopularMoviesViewController : PopularMoviesView {
-    
 }
