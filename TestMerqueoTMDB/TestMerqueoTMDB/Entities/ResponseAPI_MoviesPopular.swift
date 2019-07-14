@@ -60,9 +60,23 @@ struct Result: Codable {
 }
 
 extension Result : PopularMovieModelDelegate {
+   
     
+    /**
+     Diferents poster sizes
+     "poster_sizes": [
+     "w92",
+     "w154",
+     "w185",
+     "w342",
+     "w500",
+     "w780",
+     "original"
+     ]
+     */
     func getImageName() -> String {
-        return String(format: NetworkPath.base_url_images, "original", posterPath)
+        ///
+        return String(format: NetworkPath.base_url_images, "w342", posterPath)
     }
     
     func getTitle() -> String {

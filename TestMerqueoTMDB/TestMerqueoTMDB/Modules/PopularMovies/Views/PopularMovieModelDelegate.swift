@@ -16,4 +16,8 @@ protocol PopularMovieModelDelegate {
     
     /// Get movie title
     func getTitle() -> String
+    
+//    func getUIImage() -> UIImage
+//    
+//    func setUIImage(image:UIImage)
 }

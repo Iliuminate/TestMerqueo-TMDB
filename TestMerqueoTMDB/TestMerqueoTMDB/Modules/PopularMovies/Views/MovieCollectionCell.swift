@@ -23,6 +23,7 @@ class MovieCollectionCell: UICollectionViewCell {
     func setup(item: PopularMovieModelDelegate){
         
         print("Item Name: \(item.getTitle())")
+        
         posterMovie.downloadFrom(link: item.getImageName(), contentMode: .scaleAspectFit)
     }
 

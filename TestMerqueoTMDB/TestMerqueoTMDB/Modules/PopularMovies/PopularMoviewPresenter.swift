@@ -34,6 +34,9 @@ extension PopularMoviesPresenter : PopularMoviesPresenting {
         let interactorTitle = self.interactor.getTitle()
         popularMoviesView?.updateTitle(title: interactorTitle)
         
+        popularMoviesView?.setupCollectionView()
+        
+        
         
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.interactor.getPopularMovies { (result,error) in

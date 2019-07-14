@@ -72,12 +72,29 @@ extension PopularMoviesViewController : UICollectionViewDataSource, UICollection
 
 extension PopularMoviesViewController : PopularMoviesView {
     
+    /// Update movies data source
     func updateMovies(movies: [PopularMovieEntity]) {
         self.datasource = movies
     }
     
+    /// Set collection view format
     func setupCollectionView() {
         
+        collectionView.backgroundColor = UIColor.black
+        
+        let horizontalMargin:Double = 2.0
+        let columNumbers:Int = 3
+        let itemSize = (Double(UIScreen.main.bounds.width) / Double(columNumbers) - (horizontalMargin * 2.0))
+        let heightSize = Double(UIScreen.main.bounds.width) * 0.48//180.0
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: itemSize, height: heightSize)
+        
+        layout.minimumLineSpacing = 6
+        layout.minimumInteritemSpacing = 6
+        
+        
+        collectionView.collectionViewLayout = layout
     }
     
     func updateTitle(title: String) {
