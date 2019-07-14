@@ -16,7 +16,10 @@ class NetworkManager: NSObject {
     
     var controller: UIViewController?
     
-    init(controller:UIViewController) {
+    override init() {
+    }
+    
+    init(controller:UIViewController?) {
         super.init()
         self.controller = controller
     }

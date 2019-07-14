@@ -31,11 +31,21 @@ extension PopularMoviesPresenter : PopularMoviesPresenting {
     
     func viewDidLoad() {
         
-        //Agregamos la presentación desde el interactor
         let interactorTitle = self.interactor.getTitle()
-        print("Interacto get: \(interactorTitle)")
-        
         popularMoviesView?.updateTitle(title: interactorTitle)
+        
+        
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.interactor.getPopularMovies { (result,error) in
+                DispatchQueue.main.async {
+                    if let _result = result {
+                        self?.popularMoviesView?.updateMovies(movies: _result.results)
+                    } else {
+                        print("Error")
+                    }
+                }
+            }
+        }
     }
     
 }

@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopularMoviesViewController" customModule="TestMerqueoTMDB" customModuleProvider="target">
             <connections>
-                <outlet property="labelTest" destination="gzs-SO-pUv" id="pMt-ll-o4D"/>
+                <outlet property="collectionView" destination="Mbx-5E-4EO" id="nqZ-XF-2Ha"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,18 +21,23 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzs-SO-pUv">
-                    <rect key="frame" x="40" y="114" width="334" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Mbx-5E-4EO">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nwh-Ld-rEJ">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gzs-SO-pUv" secondAttribute="trailing" constant="40" id="eAl-6Y-XwI"/>
-                <constraint firstItem="gzs-SO-pUv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="ebX-Qr-Qls"/>
-                <constraint firstItem="gzs-SO-pUv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="pnc-Fp-Oy2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mbx-5E-4EO" secondAttribute="trailing" id="2ab-Fl-1bC"/>
+                <constraint firstItem="Mbx-5E-4EO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HAb-AE-Yx4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Mbx-5E-4EO" secondAttribute="bottom" id="MYX-64-Ldl"/>
+                <constraint firstItem="Mbx-5E-4EO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="X3M-Mh-ohJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>

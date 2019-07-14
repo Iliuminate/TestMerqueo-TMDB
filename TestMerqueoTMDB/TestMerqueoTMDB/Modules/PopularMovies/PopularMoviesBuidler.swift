@@ -16,9 +16,11 @@ class PopularMoviesBuidler {
         
         let viewController = PopularMoviesViewController()
         viewController.title = "Popular Movies"
+        let networkServices = NetworkServices.shared
+        networkServices.controller = viewController
         
         let router = PopularMoviesRouter(viewController: viewController)
-        let interactor = PopularMoviesInteractor()
+        let interactor = PopularMoviesInteractor(services: networkServices)
         let presenter = PopularMoviesPresenter(view: viewController, interactor: interactor, router: router)
         viewController.presesenter = presenter
         
