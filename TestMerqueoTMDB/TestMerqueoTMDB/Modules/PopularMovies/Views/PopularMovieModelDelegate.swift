@@ -17,7 +17,12 @@ protocol PopularMovieModelDelegate {
     /// Get movie title
     func getTitle() -> String
     
-//    func getUIImage() -> UIImage
-//    
-//    func setUIImage(image:UIImage)
+    
+    func getSummary() -> String
+    
+    func getCasting() -> String
+    
+    func getDirector() -> String
+    
+    func getYear() -> String
 }

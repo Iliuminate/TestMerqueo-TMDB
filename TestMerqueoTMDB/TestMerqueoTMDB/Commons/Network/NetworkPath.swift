@@ -16,11 +16,18 @@ struct NetworkPath {
     static let base_url_host = "api.themoviedb.org/3"
     private static let api_key = "0654b0b2075531e4ae5885f658b9f981"
     
-    /// Base url movie, requiere "id_movie" and "api_key"
-    static let api_movies_popular = "/movie/popular?api_key=\(api_key)&language=en-US&page=%@"
     
     /// Base url movie, requiere "id_movie" and "api_key"
     static let api_movies = "/movie/‰@?api_key=\(api_key)"
+    
+    /// Base url movie, requiere "id_movie" and "api_key"
+    static let api_movies_popular = "/movie/popular?api_key=\(api_key)&language=en-US&page=%@"
+    
+    /// Movie Detail, requiere "id_movie" and "api_key"
+    static let api_movie_detail = "/movie/%@?api_key=\(api_key)"
+    
+    /// Movies Credits, requiere "id_movie" and "api_key"
+    static let api_movie_credits = "/movie/%@/credits?api_key=\(api_key)"
     
     /// Base url image, requiere "file_size", "file_path"
     static let base_url_images = "https://image.tmdb.org/t/p/%@/%@"

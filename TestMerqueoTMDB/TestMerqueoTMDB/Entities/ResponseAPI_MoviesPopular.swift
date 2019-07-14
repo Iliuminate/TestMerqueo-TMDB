@@ -61,6 +61,26 @@ struct Result: Codable {
 
 extension Result : PopularMovieModelDelegate {
    
+    func getSummary() -> String {
+        return overview
+    }
+    
+    //TODO
+    func getCasting() -> String {
+        return ""
+    }
+    
+    //TODO
+    func getDirector() -> String {
+        return ""
+    }
+    
+    //TODO
+    func getYear() -> String {
+        return ""
+    }
+    
+   
     
     /**
      Diferents poster sizes

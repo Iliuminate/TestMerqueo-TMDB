@@ -12,8 +12,7 @@ import UIKit
 class PopularMoviesBuidler {
     
     static func build(usingNavigationFactory factory:NavigationFactory) -> UINavigationController {
-        
-        
+                
         let viewController = PopularMoviesViewController()
         viewController.title = "Popular Movies"
         let networkServices = NetworkServices.shared
@@ -26,24 +25,4 @@ class PopularMoviesBuidler {
         
         return factory(viewController)
     }
-    
-    
-    ///Example code, no funtional
-//    /// Go to RegisterCodeValidator
-//    func gotoNextView(){
-//
-//        let viewController = PopularMoviesBuidler()
-//
-//        if let appDelegate = UIApplication.shared.delegate {
-//            if let window = appDelegate.window {
-//
-//                window!.rootViewController = nil
-//
-//                let mainNavigation = NavigationController()
-//
-//                mainNavigation.viewControllers = [viewController]
-//                window!.rootViewController = mainNavigation
-//            }
-//        }
-//    }
 }

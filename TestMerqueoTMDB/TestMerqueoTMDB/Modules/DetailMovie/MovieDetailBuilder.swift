@@ -11,15 +11,16 @@ import UIKit
 class MovieDetailBuilder {
     
     static func build(dataDetail: PopularMovieEntity) -> UIViewController {
-        
-        
+                
         let viewController = MovieDetailViewController()
         viewController.title = dataDetail.title
+        let networkServices = NetworkServices.shared
+        networkServices.controller = viewController
         
-//        let router = PopularMoviesRouter(viewController: viewController)
-//        let interactor = PopularMoviesInteractor(services: networkServices)
-//        let presenter = PopularMoviesPresenter(view: viewController, interactor: interactor, router: router)
-//        viewController.presesenter = presenter
+        let router = MovieDetailRouter(viewController: viewController)
+        let interactor = MovieDetailInteractor(id: String(dataDetail.id), services: networkServices)
+        let presenter = MovieDetailPresenter(view: viewController, interactor: interactor, router: router)
+        viewController.presenter = presenter
         
         return viewController
     }

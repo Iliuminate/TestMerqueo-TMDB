@@ -9,21 +9,32 @@
 import UIKit
 
 
-protocol MovieDetailView {
+protocol MovieDetailView : class {
     
+    func updateTitle(title:String)
+    
+    func updateDetailMovie(data:(DetailMovieResponse?))
+    
+    func updateCreditMovie(data:(CreditsResponse?))
+    
+    func showErrorMessage(error: GeneralBasicResponse?)
 }
 
 
+//----------------------------------------------------------------
+//----------------------------------------------------------------
 class MovieDetailViewController: UIViewController {
 
     
     @IBOutlet weak var promotionalImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
+    var presenter: MovieDetailPresenting?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter?.viewDidLoad()
     }
 
 }
@@ -31,5 +42,24 @@ class MovieDetailViewController: UIViewController {
 
 extension MovieDetailViewController : MovieDetailView {
     
+    func updateDetailMovie(data: (DetailMovieResponse?)) {
+        print("---------------------")
+        print("UpdateDetailMovie")
+        print("Data: \(data)")
+    }
     
+    func updateCreditMovie(data: (CreditsResponse?)) {
+        print("---------------------")
+        print("UpdateCreditMovie")
+        print("Data: \(data)")
+    }
+    
+    
+    func updateTitle(title: String) {
+        
+    }
+    
+    func showErrorMessage(error: GeneralBasicResponse?) {
+        
+    }
 }

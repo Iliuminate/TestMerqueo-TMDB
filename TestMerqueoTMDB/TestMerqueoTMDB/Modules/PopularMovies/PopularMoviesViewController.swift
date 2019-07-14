@@ -11,7 +11,7 @@ import UIKit
 protocol PopularMoviesView : class {
  
     func updateTitle(title:String)
-    
+
     func updateMovies(movies:[PopularMovieEntity])
     
     func setupCollectionView()
@@ -91,7 +91,6 @@ extension PopularMoviesViewController : UICollectionViewDataSource, UICollection
         
         return cell
     }
-    
     
 }
 

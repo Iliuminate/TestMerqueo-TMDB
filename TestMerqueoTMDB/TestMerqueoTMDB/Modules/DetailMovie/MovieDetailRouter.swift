@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ilmint. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 protocol MovieDetailRouting {
@@ -16,6 +16,11 @@ protocol MovieDetailRouting {
 
 class MovieDetailRouter {
     
+    var viewController: UIViewController
+    
+    init(viewController: UIViewController) {
+        self.viewController = viewController
+    }
 }
 
 
