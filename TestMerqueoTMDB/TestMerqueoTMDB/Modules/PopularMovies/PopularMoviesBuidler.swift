@@ -27,6 +27,8 @@ class PopularMoviesBuidler {
         return factory(viewController)
     }
     
+    
+    ///Example code, no funtional
 //    /// Go to RegisterCodeValidator
 //    func gotoNextView(){
 //

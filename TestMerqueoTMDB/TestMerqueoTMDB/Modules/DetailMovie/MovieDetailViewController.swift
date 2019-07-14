@@ -8,11 +8,28 @@
 
 import UIKit
 
+
+protocol MovieDetailView {
+    
+}
+
+
 class MovieDetailViewController: UIViewController {
 
+    
+    @IBOutlet weak var promotionalImage: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
 
+}
+
+
+extension MovieDetailViewController : MovieDetailView {
+    
+    
 }

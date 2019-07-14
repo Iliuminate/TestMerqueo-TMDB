@@ -11,7 +11,9 @@ import UIKit
 
 protocol PopularMoviesPresenting {
     
-    func viewDidLoad() -> Void
+    func viewDidLoad() -> (Void)
+    
+    func onMovieSelection(dataDetail: PopularMovieEntity) -> (Void)
 }
 
 class PopularMoviesPresenter {
@@ -28,6 +30,7 @@ class PopularMoviesPresenter {
 }
 
 extension PopularMoviesPresenter : PopularMoviesPresenting {
+   
     
     func viewDidLoad() {
         
@@ -35,7 +38,6 @@ extension PopularMoviesPresenter : PopularMoviesPresenting {
         popularMoviesView?.updateTitle(title: interactorTitle)
         
         popularMoviesView?.setupCollectionView()
-        
         
         
         DispatchQueue.global(qos: .background).async { [weak self] in
@@ -50,5 +52,10 @@ extension PopularMoviesPresenter : PopularMoviesPresenting {
             }
         }
     }
+    
+    func onMovieSelection(dataDetail: PopularMovieEntity) {
+        self.router.routeToMovieDetail(dataDetail: dataDetail)
+    }
+    
     
 }

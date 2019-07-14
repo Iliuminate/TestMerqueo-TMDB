@@ -15,6 +15,8 @@ protocol PopularMoviesView : class {
     func updateMovies(movies:[PopularMovieEntity])
     
     func setupCollectionView()
+    
+    func onMovieSelection(dataDetail: PopularMovieEntity)
 }
 
 //-------------------------------------------------------------
@@ -47,6 +49,26 @@ class PopularMoviesViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    
+    func addTouchItemGesture(_ cell:UICollectionViewCell){
+        
+        let tap = CollectionTapGesture(target: self, action: #selector(handleTapCollection))
+        tap.numberOfTapsRequired = 1
+        cell.addGestureRecognizer(tap)
+        tap.cell = cell
+    }
+    
+    @objc func handleTapCollection(_ sender: CollectionTapGesture) {
+        
+        print("HandleTapCollection touch")
+        if let _cell = sender.cell as? MovieCollectionCell, let _data = _cell.dataSource {
+            onMovieSelection(dataDetail: _data)
+        }else {
+            print("Is not a cell")
+        }
+        
+    }
 
 }
 
@@ -62,6 +84,7 @@ extension PopularMoviesViewController : UICollectionViewDataSource, UICollection
         let viewItem = datasource[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMoviesViewController.popularMoviewIDCell, for: indexPath) as! MovieCollectionCell
         cell.setup(item: viewItem)
+        addTouchItemGesture(cell)
         
         return cell
     }
@@ -71,6 +94,10 @@ extension PopularMoviesViewController : UICollectionViewDataSource, UICollection
 
 
 extension PopularMoviesViewController : PopularMoviesView {
+    
+    func onMovieSelection(dataDetail: PopularMovieEntity) {
+        self.presesenter.onMovieSelection(dataDetail: dataDetail)
+    }
     
     /// Update movies data source
     func updateMovies(movies: [PopularMovieEntity]) {
@@ -100,4 +127,10 @@ extension PopularMoviesViewController : PopularMoviesView {
     func updateTitle(title: String) {
         //labelTest.text = title
     }
+}
+
+
+class CollectionTapGesture: UITapGestureRecognizer {
+    
+    var cell:UICollectionViewCell?
 }

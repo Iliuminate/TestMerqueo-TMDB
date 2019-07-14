@@ -11,8 +11,9 @@ import UIKit
 class MovieCollectionCell: UICollectionViewCell {
 
     
-    
     @IBOutlet weak var posterMovie: UIImageView!
+    
+    var dataSource:PopularMovieEntity?
     
     
     override func awakeFromNib() {
@@ -20,10 +21,10 @@ class MovieCollectionCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setup(item: PopularMovieModelDelegate){
+    func setup(item: PopularMovieModelDelegate) {
         
-        print("Item Name: \(item.getTitle())")
-        
+        print("Item Name: \(item.getTitle())")        
+        dataSource = (item as? PopularMovieEntity)
         posterMovie.downloadFrom(link: item.getImageName(), contentMode: .scaleAspectFit)
     }
 
