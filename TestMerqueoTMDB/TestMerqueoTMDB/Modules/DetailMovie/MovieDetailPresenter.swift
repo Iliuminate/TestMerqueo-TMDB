@@ -28,14 +28,19 @@ class MovieDetailPresenter{
         self.interactor = interactor
         self.router = router
     }
-    
-    var fullDataDetail:FullDetailMovieData?
 }
 
 extension MovieDetailPresenter : MovieDetailPresenting {
     
     
     func viewDidLoad() {
+        
+        //Set poster image
+        self.detailMoviesView?.updatePosterImage(image: self.interactor.getImageName())
+        
+        //Set base data information struct
+        self.detailMoviesView?.setBaseData(baseData: self.interactor.presentData())
+        
         
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.interactor.getMovieDetail { (result,error) in

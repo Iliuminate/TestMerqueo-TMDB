@@ -26,7 +26,7 @@ class MovieCollectionCell: UICollectionViewCell {
         print("Item Name: \(item.getTitle())")        
         //dataSource = (item as? PopularMovieEntity)
         dataSource = item
-        posterMovie.downloadFrom(link: item.getImageName(), contentMode: .scaleAspectFit)
+        posterMovie.downloadFrom(link: item.getImageName("w342"), contentMode: .scaleAspectFit)
     }
 
 

@@ -12,7 +12,7 @@ import UIKit
 protocol PopularMovieModelDelegate {
     
     /// Get Image Name
-    func getImageName() -> String
+    func getImageName(_ size:String) -> String
     
     /// Get movie title
     func getTitle() -> String

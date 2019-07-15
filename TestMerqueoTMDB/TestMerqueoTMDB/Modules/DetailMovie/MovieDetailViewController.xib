@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailViewController" customModule="TestMerqueoTMDB" customModuleProvider="target">
             <connections>
                 <outlet property="promotionalImage" destination="Ldz-iy-LL3" id="INf-dE-xzB"/>
-                <outlet property="tableView" destination="0tg-v9-pVZ" id="o9s-3h-iXx"/>
+                <outlet property="tableView" destination="nyU-mZ-m4x" id="Pyr-9t-YlD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feP-db-VJB">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ldz-iy-LL3">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
@@ -34,20 +34,23 @@
                                         <constraint firstAttribute="height" constant="250" id="ARt-kF-0o0"/>
                                     </constraints>
                                 </imageView>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0tg-v9-pVZ">
-                                    <rect key="frame" x="0.0" y="250" width="414" height="646"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nyU-mZ-m4x">
+                                    <rect key="frame" x="0.0" y="250" width="414" height="400"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="400" id="hYA-5h-QHq"/>
+                                    </constraints>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="nyU-mZ-m4x" secondAttribute="bottom" id="7eg-Fa-rHh"/>
                                 <constraint firstAttribute="trailing" secondItem="Ldz-iy-LL3" secondAttribute="trailing" id="BJg-KE-b29"/>
-                                <constraint firstAttribute="trailing" secondItem="0tg-v9-pVZ" secondAttribute="trailing" id="IUw-U4-yhe"/>
+                                <constraint firstItem="nyU-mZ-m4x" firstAttribute="leading" secondItem="feP-db-VJB" secondAttribute="leading" id="IGh-XG-0X8"/>
                                 <constraint firstItem="Ldz-iy-LL3" firstAttribute="leading" secondItem="feP-db-VJB" secondAttribute="leading" id="Koq-p0-95h"/>
+                                <constraint firstAttribute="trailing" secondItem="nyU-mZ-m4x" secondAttribute="trailing" id="RzE-VL-8IV"/>
                                 <constraint firstItem="Ldz-iy-LL3" firstAttribute="top" secondItem="feP-db-VJB" secondAttribute="top" id="Td2-b8-RWO"/>
-                                <constraint firstAttribute="bottom" secondItem="0tg-v9-pVZ" secondAttribute="bottom" id="Uc7-I1-Hgm"/>
-                                <constraint firstItem="0tg-v9-pVZ" firstAttribute="top" secondItem="Ldz-iy-LL3" secondAttribute="bottom" id="V12-qe-BM6"/>
-                                <constraint firstItem="0tg-v9-pVZ" firstAttribute="leading" secondItem="feP-db-VJB" secondAttribute="leading" id="ZO8-Xs-veH"/>
+                                <constraint firstItem="nyU-mZ-m4x" firstAttribute="top" secondItem="Ldz-iy-LL3" secondAttribute="bottom" id="ylC-tC-nez"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -59,11 +62,10 @@
                     </constraints>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dFa-22-Hx3" secondAttribute="trailing" id="DFU-Yn-gu8"/>
                 <constraint firstItem="dFa-22-Hx3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ykm-qB-CZN"/>
-                <constraint firstItem="feP-db-VJB" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="af0-6X-pLM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dFa-22-Hx3" secondAttribute="bottom" id="gIc-0X-hbr"/>
                 <constraint firstItem="feP-db-VJB" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="mwD-WE-N1Q"/>
                 <constraint firstItem="dFa-22-Hx3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rDA-yN-DUr"/>

@@ -94,16 +94,14 @@ extension Result : PopularMovieModelDelegate {
      "original"
      ]
      */
-    func getImageName() -> String {
+    func getImageName(_ size:String = "w342") -> String {
         ///
-        return String(format: NetworkPath.base_url_images, "w342", posterPath)
+        return String(format: NetworkPath.base_url_images, size, posterPath)
     }
     
     func getTitle() -> String {
         return title
-    }
-    
-    
+    }    
 }
 
 //enum OriginalLanguage: String, Codable {

@@ -18,7 +18,7 @@ class MovieDetailBuilder {
         networkServices.controller = viewController
         
         let router = MovieDetailRouter(viewController: viewController)
-        let interactor = MovieDetailInteractor(id: String(dataDetail.id), services: networkServices)
+        let interactor = MovieDetailInteractor(dataDetail: dataDetail, services: networkServices)
         let presenter = MovieDetailPresenter(view: viewController, interactor: interactor, router: router)
         viewController.presenter = presenter
         
