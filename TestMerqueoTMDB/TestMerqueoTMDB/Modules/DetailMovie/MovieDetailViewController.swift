@@ -61,16 +61,16 @@ class MovieDetailViewController: UIViewController {
     
     private func initStyles(){
         
-        lb11.textColor = UIColor.red
+        lb11.textColor = UIColor.moviesRed
         lb12.textColor = UIColor.white
         
-        lb21.textColor = UIColor.red
+        lb21.textColor = UIColor.moviesRed
         lb22.textColor = UIColor.white
         
-        lb31.textColor = UIColor.red
+        lb31.textColor = UIColor.moviesRed
         lb32.textColor = UIColor.white
         
-        lb41.textColor = UIColor.red
+        lb41.textColor = UIColor.moviesRed
         lb42.textColor = UIColor.white
     }
 
