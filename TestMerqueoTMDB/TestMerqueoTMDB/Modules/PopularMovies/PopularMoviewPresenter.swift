@@ -14,6 +14,8 @@ protocol PopularMoviesPresenting {
     func viewDidLoad() -> (Void)
     
     func onMovieSelection(dataDetail: PopularMovieEntity) -> (Void)
+    
+    func getNextPage(page:Int)
 }
 
 class PopularMoviesPresenter {
@@ -33,10 +35,7 @@ extension PopularMoviesPresenter : PopularMoviesPresenting {
    
     
     func viewDidLoad() {
-        
-        let interactorTitle = self.interactor.getTitle()
-        popularMoviesView?.updateTitle(title: interactorTitle)
-        
+                
         popularMoviesView?.setupCollectionView()
         
                 
@@ -59,6 +58,26 @@ extension PopularMoviesPresenter : PopularMoviesPresenting {
     
     func onMovieSelection(dataDetail: PopularMovieEntity) {
         self.router.routeToMovieDetail(dataDetail: dataDetail)
+    }
+    
+    
+    func getNextPage(page:Int){
+        
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.interactor.getPopularMovies(page:page) { (result,error) in
+                DispatchQueue.main.async {
+                    
+                    if let _result = result {
+                        self?.popularMoviesView?.updateMovies(page: _result.page, movies: _result.results)
+                    } else {
+                        print("Error")
+                        if let _error = error {
+                            self?.popularMoviesView?.showErrorMessage(error: _error)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     

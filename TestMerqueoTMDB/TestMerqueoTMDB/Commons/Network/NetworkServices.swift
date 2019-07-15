@@ -15,6 +15,7 @@ typealias CreditsClosure = (CreditsResponse?, GeneralBasicResponse?) -> (Void)
 
 protocol NetworkAPI {
     
+    func fetchPopularMovies(page:Int, response: @escaping PopularMoviesClosure)
     func fetchPopularMovies(response: @escaping PopularMoviesClosure)
     func fetchDetailMovie(id:String, response: @escaping DetailMoviewClosure)
     func fetchCreditsMovie(id:String, response: @escaping CreditsClosure)
@@ -31,6 +32,22 @@ class NetworkServices {
 
 
 extension NetworkServices : NetworkAPI {
+    
+    func fetchPopularMovies(page: Int, response: @escaping PopularMoviesClosure) {
+        
+        let network = NetworkManager.init(controller: self.controller)
+        let uri = String(format: NetworkPath.api_movies_popular, String(page))
+        
+        network.GET(uriApi: uri, header: nil) {
+            
+            (result:PopularMoviesResponse?, error:GeneralBasicResponse?) in
+            DispatchQueue.main.async {
+                print("Call fetchPopularMovies")
+                response(result, error)
+            }
+        }
+    }
+    
     
     /// Fetch credits of moview
     func fetchDetailMovie(id:String, response: @escaping DetailMoviewClosure) {
