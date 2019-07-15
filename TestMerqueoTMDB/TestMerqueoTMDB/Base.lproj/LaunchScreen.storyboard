@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,9 +15,40 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="merqueo" translatesAutoresizingMaskIntoConstraints="NO" id="ZUw-uM-2eX">
+                                <rect key="frame" x="20.5" y="328" width="373" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="s9P-J5-bIX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carlos Enrique Diaz Arandia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kp-7Y-swJ">
+                                <rect key="frame" x="20.5" y="623" width="373" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desarrollado por:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkG-63-03f">
+                                <rect key="frame" x="20.5" y="594" width="373" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1kp-7Y-swJ" firstAttribute="top" secondItem="jkG-63-03f" secondAttribute="bottom" constant="8" id="7xp-qf-Kym"/>
+                            <constraint firstItem="ZUw-uM-2eX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="98J-vQ-uUs"/>
+                            <constraint firstItem="jkG-63-03f" firstAttribute="centerX" secondItem="ZUw-uM-2eX" secondAttribute="centerX" id="Fcr-tx-975"/>
+                            <constraint firstItem="ZUw-uM-2eX" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.9" id="GvG-ZR-prO"/>
+                            <constraint firstItem="1kp-7Y-swJ" firstAttribute="width" secondItem="ZUw-uM-2eX" secondAttribute="width" id="LJE-8F-Dss"/>
+                            <constraint firstItem="jkG-63-03f" firstAttribute="top" secondItem="ZUw-uM-2eX" secondAttribute="bottom" constant="16" id="NEG-pX-Q87"/>
+                            <constraint firstItem="jkG-63-03f" firstAttribute="width" secondItem="ZUw-uM-2eX" secondAttribute="width" id="Vn1-Zk-gpQ"/>
+                            <constraint firstItem="1kp-7Y-swJ" firstAttribute="centerX" secondItem="ZUw-uM-2eX" secondAttribute="centerX" id="egb-W1-eP7"/>
+                            <constraint firstItem="ZUw-uM-2eX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="lMI-8V-xNR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +57,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="merqueo" width="908" height="475"/>
+    </resources>
 </document>
