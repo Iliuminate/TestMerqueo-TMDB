@@ -19,7 +19,7 @@ protocol MovieDetailView : class {
     
     func updateCreditMovie(data:(CreditsResponse?))
     
-    func showErrorMessage(error: GeneralBasicResponse?)
+    func showErrorMessage(error: GeneralBasicResponse)
     
     func setBaseData(baseData:[SingleDetailInfoMovieModelDelegate])
 }
@@ -47,14 +47,14 @@ class MovieDetailViewController: UIViewController {
     
     
     
-    var presenter: MovieDetailPresenting?
+    var presenter: MovieDetailPresenting!
     var dataSource:[SingleDetailInfoMovieModelDelegate] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter?.viewDidLoad()
+        presenter.viewDidLoad()
         
         initStyles()
     }
@@ -139,7 +139,19 @@ extension MovieDetailViewController : MovieDetailView {
         
     }
     
-    func showErrorMessage(error: GeneralBasicResponse?) {
+    func showErrorMessage(error: GeneralBasicResponse) {
         
+        let alert = UIAlertController(title: "Error", message: error.statusMessage, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Reintentar", style: .default, handler: {
+            _ in
+            self.presenter.viewDidLoad()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: {
+            _ in
+        }))
+        
+        self.present(alert, animated: true)
     }
 }

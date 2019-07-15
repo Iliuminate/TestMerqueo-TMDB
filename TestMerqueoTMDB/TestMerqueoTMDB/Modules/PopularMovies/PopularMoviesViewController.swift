@@ -17,6 +17,8 @@ protocol PopularMoviesView : class {
     func setupCollectionView()
     
     func onMovieSelection(dataDetail: PopularMovieEntity)
+    
+    func showErrorMessage(error: GeneralBasicResponse)
 }
 
 //-------------------------------------------------------------
@@ -96,6 +98,23 @@ extension PopularMoviesViewController : UICollectionViewDataSource, UICollection
 
 
 extension PopularMoviesViewController : PopularMoviesView {
+    
+    func showErrorMessage(error: GeneralBasicResponse) {
+        
+        let alert = UIAlertController(title: "Error", message: error.statusMessage, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Reintentar", style: .default, handler: {
+            _ in
+            self.presesenter.viewDidLoad()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: {
+            _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
     
     func onMovieSelection(dataDetail: PopularMovieEntity) {
         self.presesenter.onMovieSelection(dataDetail: dataDetail)

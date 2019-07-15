@@ -49,7 +49,9 @@ extension MovieDetailPresenter : MovieDetailPresenting {
                         self?.detailMoviesView?.updateDetailMovie(data: (_result))
                     } else {
                         print("Error")
-                        self?.detailMoviesView?.showErrorMessage(error: error)
+                        if let _error = error {
+                            self?.detailMoviesView?.showErrorMessage(error: _error)
+                        }
                     }
                 }
             }
@@ -62,7 +64,9 @@ extension MovieDetailPresenter : MovieDetailPresenting {
                         self?.detailMoviesView?.updateCreditMovie(data: (_result))
                     } else {
                         print("Error")
-                        self?.detailMoviesView?.showErrorMessage(error: error)
+                        if let _error = error {
+                            self?.detailMoviesView?.showErrorMessage(error: _error)
+                        }
                     }
                 }
             }

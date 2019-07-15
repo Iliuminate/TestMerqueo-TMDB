@@ -39,14 +39,18 @@ extension PopularMoviesPresenter : PopularMoviesPresenting {
         
         popularMoviesView?.setupCollectionView()
         
-        
+                
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.interactor.getPopularMovies { (result,error) in
                 DispatchQueue.main.async {
+                    
                     if let _result = result {
                         self?.popularMoviesView?.updateMovies(movies: _result.results)
                     } else {
                         print("Error")
+                        if let _error = error {
+                            self?.popularMoviesView?.showErrorMessage(error: _error)
+                        }
                     }
                 }
             }
