@@ -38,6 +38,9 @@
 		840B9A9F22DBF3E80055955A /* SingleDetailInfoMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B9A9E22DBF3E80055955A /* SingleDetailInfoMovieModel.swift */; };
 		840B9AA022DBF3E80055955A /* SingleDetailInfoMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B9A9E22DBF3E80055955A /* SingleDetailInfoMovieModel.swift */; };
 		840B9AA122DBF3E80055955A /* SingleDetailInfoMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B9A9E22DBF3E80055955A /* SingleDetailInfoMovieModel.swift */; };
+		840B9AA322DC08B60055955A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B9AA222DC08B60055955A /* UIColor+Extension.swift */; };
+		840B9AA422DC08B60055955A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B9AA222DC08B60055955A /* UIColor+Extension.swift */; };
+		840B9AA522DC08B60055955A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B9AA222DC08B60055955A /* UIColor+Extension.swift */; };
 		84B9FD5122D8C8FB009E1B88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD5022D8C8FB009E1B88 /* AppDelegate.swift */; };
 		84B9FD5322D8C8FB009E1B88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9FD5222D8C8FB009E1B88 /* ViewController.swift */; };
 		84B9FD5622D8C8FB009E1B88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B9FD5422D8C8FB009E1B88 /* Main.storyboard */; };
@@ -149,6 +152,7 @@
 		840B9A9322DBEE640055955A /* DetailInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailInfoCell.xib; sourceTree = "<group>"; };
 		840B9A9A22DBF1ED0055955A /* FullDetailInfoMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDetailInfoMovieModel.swift; sourceTree = "<group>"; };
 		840B9A9E22DBF3E80055955A /* SingleDetailInfoMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDetailInfoMovieModel.swift; sourceTree = "<group>"; };
+		840B9AA222DC08B60055955A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		84B9FD4D22D8C8FB009E1B88 /* TestMerqueoTMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMerqueoTMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B9FD5022D8C8FB009E1B88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B9FD5222D8C8FB009E1B88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 				84B9FDB522D90EDA009E1B88 /* String+Extension.swift */,
 				84B9FDBD22D927E1009E1B88 /* UIImageView+Extension.swift */,
 				840B9A7322DBBB7D0055955A /* UIImage+Extension.swift */,
+				840B9AA222DC08B60055955A /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -554,6 +559,7 @@
 				84B9FD5322D8C8FB009E1B88 /* ViewController.swift in Sources */,
 				840B9A8B22DBDEC10055955A /* ResponseAPI_DetailMovie.swift in Sources */,
 				840B9A7722DBC6A40055955A /* MovieDetailRouter.swift in Sources */,
+				840B9AA322DC08B60055955A /* UIColor+Extension.swift in Sources */,
 				840B9A9422DBEE640055955A /* DetailInfoCell.swift in Sources */,
 				84B9FDCA22D93088009E1B88 /* PopularMoviesViewController.swift in Sources */,
 				84B9FDBE22D927E1009E1B88 /* UIImageView+Extension.swift in Sources */,
@@ -604,6 +610,7 @@
 				84B9FD6922D8C8FC009E1B88 /* TestMerqueoTMDBTests.swift in Sources */,
 				84B9FDEF22DAC681009E1B88 /* MovieDetailViewController.swift in Sources */,
 				84B9FDE822DAB1F7009E1B88 /* ResponseDelegate.swift in Sources */,
+				840B9AA422DC08B60055955A /* UIColor+Extension.swift in Sources */,
 				84B9FD8822D8CE0A009E1B88 /* ResponseAPI_Image.swift in Sources */,
 				84B9FDFF22DB6CDC009E1B88 /* PopularMovieModelDelegate.swift in Sources */,
 				84B9FDF722DAC800009E1B88 /* MovieCollectionCell.swift in Sources */,
@@ -642,6 +649,7 @@
 				84B9FD7422D8C8FC009E1B88 /* TestMerqueoTMDBUITests.swift in Sources */,
 				84B9FDF022DAC681009E1B88 /* MovieDetailViewController.swift in Sources */,
 				84B9FDE922DAB1F7009E1B88 /* ResponseDelegate.swift in Sources */,
+				840B9AA522DC08B60055955A /* UIColor+Extension.swift in Sources */,
 				84B9FD8922D8CE0A009E1B88 /* ResponseAPI_Image.swift in Sources */,
 				84B9FE0022DB6CDC009E1B88 /* PopularMovieModelDelegate.swift in Sources */,
 				84B9FDF822DAC800009E1B88 /* MovieCollectionCell.swift in Sources */,
