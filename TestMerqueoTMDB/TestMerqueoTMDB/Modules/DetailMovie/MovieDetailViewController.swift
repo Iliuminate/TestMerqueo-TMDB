@@ -31,17 +31,24 @@ class MovieDetailViewController: UIViewController {
 
     
     @IBOutlet weak var promotionalImage: UIImageView!
-    @IBOutlet weak var tableView: UITableView!
     
     
-    static let movieDetailCellID = "DetailInfoCell"
+    @IBOutlet weak var lb11: UILabel!
+    @IBOutlet weak var lb12: UILabel!
+    
+    @IBOutlet weak var lb21: UILabel!
+    @IBOutlet weak var lb22: UILabel!
+    
+    @IBOutlet weak var lb31: UILabel!
+    @IBOutlet weak var lb32: UILabel!
+    
+    @IBOutlet weak var lb41: UILabel!
+    @IBOutlet weak var lb42: UILabel!
+    
+    
     
     var presenter: MovieDetailPresenting?
-    var dataSource:[SingleDetailInfoMovieModelDelegate] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var dataSource:[SingleDetailInfoMovieModelDelegate] = []
     
     
     override func viewDidLoad() {
@@ -49,72 +56,26 @@ class MovieDetailViewController: UIViewController {
         
         presenter?.viewDidLoad()
         
-        let nib = UINib.init(nibName: MovieDetailViewController.movieDetailCellID, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: MovieDetailViewController.movieDetailCellID)
+        initStyles()
+    }
+    
+    private func initStyles(){
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        lb11.textColor = UIColor.red
+        lb12.textColor = UIColor.white
         
-        tableView.rowHeight = UITableView.automaticDimension
-        //tableView.estimatedRowHeight = 36
+        lb21.textColor = UIColor.red
+        lb22.textColor = UIColor.white
         
-        //Disable scroll
-        tableView.isScrollEnabled = false
-        tableView.allowsSelection = false
+        lb31.textColor = UIColor.red
+        lb32.textColor = UIColor.white
+        
+        lb41.textColor = UIColor.red
+        lb42.textColor = UIColor.white
     }
 
 }
 
-
-
-extension MovieDetailViewController : UITableViewDelegate, UITableViewDataSource {
-    
-    /**  */
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return dataSource.count
-    }
-    
-    /**  */
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: MovieDetailViewController.movieDetailCellID, for: indexPath as IndexPath) as! DetailInfoCell
-        
-        let data = dataSource[indexPath.row]
-        cell.setup(data: data)
-        
-        return cell
-    }
-    
-    
-//    /** */
-//    func setHeightTable() {
-//
-//        tableView.translatesAutoresizingMaskIntoConstraints = true
-//
-//        let heightContent = tableView.contentSize.height
-//        let yPosition = tableView.frame.origin.y
-//        let HeightScreen = self.view.bounds.height
-//        let minimunHeightTableView = HeightScreen-yPosition
-//
-////        print("YPosition: \(yPosition)")
-////        print("HeighScreen: \(HeightScreen)")
-////        print("minumHeighTale: \(minimunHeightTableView)")
-////        print("heightConten: \(heightContent)")
-//
-////        if heightContent >= minimunHeightTableView {
-////            tableView.frame.size = CGSize.init(width: self.view.bounds.width, height: (heightContent))
-////        } else {
-////            tableView.frame.size = CGSize.init(width: self.view.bounds.width, height: (minimunHeightTableView))
-////        }
-//
-//        ////tableView.frame.size = CGSize.init(width: self.view.bounds.width, height: (800.0))
-//
-//        self.view.layoutIfNeeded()
-//        self.view.setNeedsUpdateConstraints()
-//        self.view.updateConstraintsIfNeeded()
-//    }
-}
 
 
 
@@ -126,6 +87,11 @@ extension MovieDetailViewController : MovieDetailView {
     
     func setBaseData(baseData: [SingleDetailInfoMovieModelDelegate]) {
         dataSource = baseData
+        
+        lb11.text = dataSource[0].getTitle()
+        lb21.text = dataSource[1].getTitle()
+        lb31.text = dataSource[2].getTitle()
+        lb41.text = dataSource[3].getTitle()
     }
     
     func updateDetailMovie(data: (DetailMovieResponse?)) {
@@ -136,8 +102,9 @@ extension MovieDetailViewController : MovieDetailView {
         dataSource[0].setDescription(data?.overview ?? "") // Summary
         dataSource[3].setDescription(data?.releaseDate ?? "") //Year
         
-        tableView.reloadData()
-        //setHeightTable()
+        lb12.text = data?.overview ?? ""
+        lb42.text = data?.releaseDate ?? ""
+        
     }
     
     func updateCreditMovie(data: (CreditsResponse?)) {
@@ -156,16 +123,15 @@ extension MovieDetailViewController : MovieDetailView {
                 //casting = String(casting.removeLast())
             }
             dataSource[1].setDescription(casting) //Cast
+            lb22.text = casting
         }
         
         if let crew = data?.crew {
             if let director = crew.first(where:{$0.job == "Director" }) {
                 dataSource[2].setDescription(director.name) //Director ((CREW))
+                lb32.text = director.name
             }
         }
-        
-        tableView.reloadData()
-        //setHeightTable()
     }
     
     
