@@ -10,6 +10,7 @@ import UIKit
 
 protocol PopularMoviesRouting {
     
+    func routeToMovieDetail(dataDetail: PopularMovieEntity)
 }
 
 class PopularMoviesRouter {
@@ -24,4 +25,9 @@ class PopularMoviesRouter {
 
 extension PopularMoviesRouter : PopularMoviesRouting {
     
+    func routeToMovieDetail(dataDetail: PopularMovieEntity) {
+        
+        let movieDetault = MovieDetailBuilder.build(dataDetail: dataDetail)
+        self.viewController.navigationController?.pushViewController(movieDetault, animated: true)
+    }
 }

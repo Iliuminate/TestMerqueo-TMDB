@@ -11,27 +11,147 @@ import UIKit
 protocol PopularMoviesView : class {
  
     func updateTitle(title:String)
+
+    func updateMovies(movies:[PopularMovieEntity])
+    
+    func setupCollectionView()
+    
+    func onMovieSelection(dataDetail: PopularMovieEntity)
+    
+    func showErrorMessage(error: GeneralBasicResponse)
 }
 
-
+//-------------------------------------------------------------
+//-------------------------------------------------------------
 class PopularMoviesViewController: UIViewController {
 
     @IBOutlet weak var labelTest: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
+    
+    private static let popularMoviewIDCell = "MovieCollectionCell"
     
     var presesenter: PopularMoviesPresenting!
+    var datasource: [PopularMovieEntity] = [] {
+        
+        didSet{
+            self.collectionView.reloadData()
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.presesenter.viewDidLoad()
+        
+        let nib = UINib(nibName: PopularMoviesViewController.popularMoviewIDCell, bundle: nil)
+        collectionView?.register(nib, forCellWithReuseIdentifier: PopularMoviesViewController.popularMoviewIDCell)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    
+    func addTouchItemGesture(_ cell:UICollectionViewCell){
+        
+        let tap = CollectionTapGesture(target: self, action: #selector(handleTapCollection))
+        tap.numberOfTapsRequired = 1
+        cell.addGestureRecognizer(tap)
+        tap.cell = cell
+    }
+    
+    @objc func handleTapCollection(_ sender: CollectionTapGesture) {
+        
+        print("HandleTapCollection touch")
+        if let _cell = sender.cell as? MovieCollectionCell,
+            let _data = _cell.dataSource,
+            let data = _data as? PopularMovieEntity {
+            
+            onMovieSelection(dataDetail: data)
+        }else {
+            print("Is not a cell")
+        }
     }
 
 }
 
+
+extension PopularMoviesViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return datasource.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let viewItem = datasource[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMoviesViewController.popularMoviewIDCell, for: indexPath) as! MovieCollectionCell
+        //cell.setup(item: viewItem, classType: PopularMovieEntity.self)
+        cell.setup(item: viewItem)
+        addTouchItemGesture(cell)
+        
+        return cell
+    }
+    
+}
+
+
 extension PopularMoviesViewController : PopularMoviesView {
     
-    func updateTitle(title: String) {
-        labelTest.text = title
+    func showErrorMessage(error: GeneralBasicResponse) {
+        
+        let alert = UIAlertController(title: "Error", message: error.statusMessage, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Reintentar", style: .default, handler: {
+            _ in
+            self.presesenter.viewDidLoad()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: {
+            _ in
+        }))
+        
+        self.present(alert, animated: true)
     }
+    
+    
+    func onMovieSelection(dataDetail: PopularMovieEntity) {
+        self.presesenter.onMovieSelection(dataDetail: dataDetail)
+    }
+    
+    /// Update movies data source
+    func updateMovies(movies: [PopularMovieEntity]) {
+        self.datasource = movies
+    }
+    
+    /// Set collection view format
+    func setupCollectionView() {
+        
+        collectionView.backgroundColor = UIColor.black
+        
+        let horizontalMargin:Double = 2.0
+        let columNumbers:Int = 3
+        let itemSize = (Double(UIScreen.main.bounds.width) / Double(columNumbers) - (horizontalMargin * 2.0))
+        let heightSize = Double(UIScreen.main.bounds.width) * 0.48//180.0
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: itemSize, height: heightSize)
+        
+        layout.minimumLineSpacing = 6
+        layout.minimumInteritemSpacing = 6
+        
+        
+        collectionView.collectionViewLayout = layout
+    }
+    
+    func updateTitle(title: String) {
+        //labelTest.text = title
+    }
+}
+
+
+class CollectionTapGesture: UITapGestureRecognizer {
+    
+    var cell:UICollectionViewCell?
 }

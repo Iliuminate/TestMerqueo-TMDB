@@ -16,12 +16,15 @@ class NetworkManager: NSObject {
     
     var controller: UIViewController?
     
-    init(controller:UIViewController) {
+    override init() {
+    }
+    
+    init(controller:UIViewController?) {
         super.init()
         self.controller = controller
     }
     
-    //let loadingIndicator = LoadingIndicator()
+    let loadingIndicator = LoadingIndicator()
     
     //------------------------------------------------------------------------
     //------------------------------------------------------------------------
@@ -51,7 +54,10 @@ class NetworkManager: NSObject {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = _headers
         
-        //loadingIndicator.show(uiView: controller!)
+        DispatchQueue.main.async {
+            self.loadingIndicator.show(uiView: self.controller!)
+        }
+        
         
         // Create and run a URLSession data task with our JSON encoded POST request
         let config = URLSessionConfiguration.default
@@ -62,7 +68,9 @@ class NetworkManager: NSObject {
             //--------------------------------------------------------------------
             //--------------------------------------------------------------------
             (responseData, response, responseError) in
-            //self.loadingIndicator.hide()
+            DispatchQueue.main.async {
+                self.loadingIndicator.hide()
+            }
             
             print("URI: \(request.mainDocumentURL)")
             print("URI2: \(request.url)")
@@ -209,7 +217,9 @@ class NetworkManager: NSObject {
         //request.allHTTPHeaderFields = headers
         request.allHTTPHeaderFields = _headers
         
-        //loadingIndicator.show(uiView: controller!)
+        DispatchQueue.main.async {
+            self.loadingIndicator.show(uiView: self.controller!)
+        }
         
         
         do {
@@ -232,7 +242,9 @@ class NetworkManager: NSObject {
             //--------------------------------------------------------------------
             //--------------------------------------------------------------------
             (responseData, response, responseError) in
-            //self.loadingIndicator.hide()
+            DispatchQueue.main.async {
+                self.loadingIndicator.hide()
+            }
             //--------------------------------------------------------------------
             //--------------------------------------------------------------------
             guard responseError == nil else {

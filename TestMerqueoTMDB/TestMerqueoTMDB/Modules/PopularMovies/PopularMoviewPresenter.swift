@@ -11,7 +11,9 @@ import UIKit
 
 protocol PopularMoviesPresenting {
     
-    func viewDidLoad() -> Void
+    func viewDidLoad() -> (Void)
+    
+    func onMovieSelection(dataDetail: PopularMovieEntity) -> (Void)
 }
 
 class PopularMoviesPresenter {
@@ -28,14 +30,36 @@ class PopularMoviesPresenter {
 }
 
 extension PopularMoviesPresenter : PopularMoviesPresenting {
+   
     
     func viewDidLoad() {
         
-        //Agregamos la presentación desde el interactor
         let interactorTitle = self.interactor.getTitle()
-        print("Interacto get: \(interactorTitle)")
-        
         popularMoviesView?.updateTitle(title: interactorTitle)
+        
+        popularMoviesView?.setupCollectionView()
+        
+                
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.interactor.getPopularMovies { (result,error) in
+                DispatchQueue.main.async {
+                    
+                    if let _result = result {
+                        self?.popularMoviesView?.updateMovies(movies: _result.results)
+                    } else {
+                        print("Error")
+                        if let _error = error {
+                            self?.popularMoviesView?.showErrorMessage(error: _error)
+                        }
+                    }
+                }
+            }
+        }
     }
+    
+    func onMovieSelection(dataDetail: PopularMovieEntity) {
+        self.router.routeToMovieDetail(dataDetail: dataDetail)
+    }
+    
     
 }

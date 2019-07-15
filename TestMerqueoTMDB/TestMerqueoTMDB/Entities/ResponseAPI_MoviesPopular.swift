@@ -7,7 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
+///Use common Entity to Response API for popular movies
+typealias PopularMoviesResponse = ResponseAPIMoviesPopular
 
 struct ResponseAPIMoviesPopular: Codable {
     let page: Int
@@ -21,7 +24,11 @@ struct ResponseAPIMoviesPopular: Codable {
     }
 }
 
+///Use common Entity, Restult to Popular Movie
+typealias PopularMovieEntity = Result
+
 struct Result: Codable {
+    
     let posterPath: String
     let adult: Bool
     let overview, releaseDate: String
@@ -50,6 +57,51 @@ struct Result: Codable {
         case video
         case voteAverage = "vote_average"
     }
+}
+
+extension Result : PopularMovieModelDelegate {
+   
+    func getSummary() -> String {
+        return overview
+    }
+    
+    //TODO
+    func getCasting() -> String {
+        return ""
+    }
+    
+    //TODO
+    func getDirector() -> String {
+        return ""
+    }
+    
+    //TODO
+    func getYear() -> String {
+        return ""
+    }
+    
+   
+    
+    /**
+     Diferents poster sizes
+     "poster_sizes": [
+     "w92",
+     "w154",
+     "w185",
+     "w342",
+     "w500",
+     "w780",
+     "original"
+     ]
+     */
+    func getImageName(_ size:String = "w342") -> String {
+        ///
+        return String(format: NetworkPath.base_url_images, size, posterPath)
+    }
+    
+    func getTitle() -> String {
+        return title
+    }    
 }
 
 //enum OriginalLanguage: String, Codable {

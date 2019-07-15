@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Containt format to error to call services
 struct GeneralBasicResponse: Codable {
     
     let statusMessage: String
