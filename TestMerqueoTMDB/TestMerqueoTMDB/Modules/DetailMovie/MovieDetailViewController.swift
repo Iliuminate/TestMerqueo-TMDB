@@ -87,33 +87,33 @@ extension MovieDetailViewController : UITableViewDelegate, UITableViewDataSource
     }
     
     
-    /** */
-    func setHeightTable() {
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = true
-        
-        let heightContent = tableView.contentSize.height
-        let yPosition = tableView.frame.origin.y
-        let HeightScreen = self.view.bounds.height
-        let minimunHeightTableView = HeightScreen-yPosition
-        
-//        print("YPosition: \(yPosition)")
-//        print("HeighScreen: \(HeightScreen)")
-//        print("minumHeighTale: \(minimunHeightTableView)")
-//        print("heightConten: \(heightContent)")
-        
-//        if heightContent >= minimunHeightTableView {
-//            tableView.frame.size = CGSize.init(width: self.view.bounds.width, height: (heightContent))
-//        } else {
-//            tableView.frame.size = CGSize.init(width: self.view.bounds.width, height: (minimunHeightTableView))
-//        }
-        
-        tableView.frame.size = CGSize.init(width: self.view.bounds.width, height: (800.0))
-        
-        self.view.layoutIfNeeded()
-        self.view.setNeedsUpdateConstraints()
-        self.view.updateConstraintsIfNeeded()
-    }
+//    /** */
+//    func setHeightTable() {
+//
+//        tableView.translatesAutoresizingMaskIntoConstraints = true
+//
+//        let heightContent = tableView.contentSize.height
+//        let yPosition = tableView.frame.origin.y
+//        let HeightScreen = self.view.bounds.height
+//        let minimunHeightTableView = HeightScreen-yPosition
+//
+////        print("YPosition: \(yPosition)")
+////        print("HeighScreen: \(HeightScreen)")
+////        print("minumHeighTale: \(minimunHeightTableView)")
+////        print("heightConten: \(heightContent)")
+//
+////        if heightContent >= minimunHeightTableView {
+////            tableView.frame.size = CGSize.init(width: self.view.bounds.width, height: (heightContent))
+////        } else {
+////            tableView.frame.size = CGSize.init(width: self.view.bounds.width, height: (minimunHeightTableView))
+////        }
+//
+//        ////tableView.frame.size = CGSize.init(width: self.view.bounds.width, height: (800.0))
+//
+//        self.view.layoutIfNeeded()
+//        self.view.setNeedsUpdateConstraints()
+//        self.view.updateConstraintsIfNeeded()
+//    }
 }
 
 
@@ -137,7 +137,7 @@ extension MovieDetailViewController : MovieDetailView {
         dataSource[3].setDescription(data?.releaseDate ?? "") //Year
         
         tableView.reloadData()
-        setHeightTable()
+        //setHeightTable()
     }
     
     func updateCreditMovie(data: (CreditsResponse?)) {
@@ -160,12 +160,12 @@ extension MovieDetailViewController : MovieDetailView {
         
         if let crew = data?.crew {
             if let director = crew.first(where:{$0.job == "Director" }) {
-                dataSource[2].setDescription(director.name ?? "") //Director ((CREW))
+                dataSource[2].setDescription(director.name) //Director ((CREW))
             }
         }
         
         tableView.reloadData()
-        setHeightTable()
+        //setHeightTable()
     }
     
     
