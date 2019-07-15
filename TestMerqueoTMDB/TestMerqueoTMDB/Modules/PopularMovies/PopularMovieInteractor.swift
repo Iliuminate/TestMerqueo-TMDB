@@ -11,9 +11,9 @@ import UIKit
 
 protocol PopularMoviesUseCase {
     
-    func getTitle() -> String
-    
     func getPopularMovies(completion: @escaping PopularMoviesClosure)
+    
+    func getPopularMovies(page:Int ,completion: @escaping PopularMoviesClosure)
 }
 
 class PopularMoviesInteractor {
@@ -28,14 +28,17 @@ class PopularMoviesInteractor {
 
 extension PopularMoviesInteractor : PopularMoviesUseCase {
     
-    func getPopularMovies(completion: @escaping PopularMoviesClosure) {
-        self.services.fetchPopularMovies { (result,error) in
+    func getPopularMovies(page: Int, completion: @escaping PopularMoviesClosure) {
+        
+        self.services.fetchPopularMovies(page: page) { (result,error) in
             completion(result,error)
         }
     }
     
-    func getTitle() -> String {
-        
-        return "Mi titulo personalizado"
+    
+    func getPopularMovies(completion: @escaping PopularMoviesClosure) {
+        self.services.fetchPopularMovies { (result,error) in
+            completion(result,error)
+        }
     }
 }

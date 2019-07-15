@@ -9,10 +9,10 @@
 import UIKit
 
 protocol PopularMoviesView : class {
- 
-    func updateTitle(title:String)
 
     func updateMovies(movies:[PopularMovieEntity])
+    
+    func updateMovies(page:Int, movies:[PopularMovieEntity])
     
     func setupCollectionView()
     
@@ -73,6 +73,26 @@ class PopularMoviesViewController: UIViewController {
             print("Is not a cell")
         }
     }
+    
+    var isToReload:Bool = true
+    var localPage = 1
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let  height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
+            
+            if isToReload {
+                
+                isToReload = false
+                
+                //- Get next pending page
+                self.presesenter.getNextPage(page: (localPage + 1))
+            }
+        }
+    }
 
 }
 
@@ -98,6 +118,18 @@ extension PopularMoviesViewController : UICollectionViewDataSource, UICollection
 
 
 extension PopularMoviesViewController : PopularMoviesView {
+    
+    func updateMovies(page: Int, movies: [PopularMovieEntity]) {
+        
+        isToReload = true
+        localPage = page
+        if page > 1 {
+            for movie in movies {
+                datasource.append(movie)
+            }
+        }
+    }
+    
     
     func showErrorMessage(error: GeneralBasicResponse) {
         
@@ -145,9 +177,6 @@ extension PopularMoviesViewController : PopularMoviesView {
         collectionView.collectionViewLayout = layout
     }
     
-    func updateTitle(title: String) {
-        //labelTest.text = title
-    }
 }
 
 

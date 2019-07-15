@@ -34,11 +34,12 @@ class LoadingIndicator {
 //        _uiView?.frame = UIScreen.main.bounds
         container!.frame = _uiView!.bounds
         container!.center = _uiView!.center
-        container!.backgroundColor = UIColorFromHex(rgbValue: 0xffffff, alpha: 0.5)
+        container!.backgroundColor = UIColorFromHex(rgbValue: 0x111111, alpha: 0.8)
         
         loadingView!.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
         loadingView!.center = _uiView!.center
-        loadingView!.backgroundColor = UIColorFromHex(rgbValue: 0x444444, alpha: 0.7)
+        //loadingView!.backgroundColor = UIColorFromHex(rgbValue: 0x444444, alpha: 0.7)
+        loadingView!.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         loadingView!.clipsToBounds = true
         loadingView!.layer.cornerRadius = 10
         
